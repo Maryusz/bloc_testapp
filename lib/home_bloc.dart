@@ -22,6 +22,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
     bool isSuccess = Random().nextBool();
 
+    // A dipendere dal caso, emette uno stato di errore o di successo in cui inizializza
+    // gli argomenti creati in HomeState
     if (isSuccess) {
       List<Food> dummyFoods = FoodGenerator.generateDummyFoods();
       emitter(HomeSuccessFetchDataState(foods: dummyFoods));
