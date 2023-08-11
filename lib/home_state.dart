@@ -1,4 +1,3 @@
-import 'package:bloc_testapp/food.dart';
 import 'package:equatable/equatable.dart';
 
 // Qui si definiscono tutti i possibili stati in cui un widget può trovarsi
@@ -22,23 +21,37 @@ class HomeLoadingState extends HomeState {
   List<Object?> get props => [];
 }
 
-// Le proprietà come errorMessage e foods sono definite qua, ma vengono implementate poi
-// nella classe HomeBloc
-class HomeErrorFetchDataState extends HomeState {
-  final String errorMessage;
-  const HomeErrorFetchDataState({
-    required this.errorMessage,
-  });
+class WithPropsPressedState extends HomeState {
+  final int value;
+
+  const WithPropsPressedState(this.value);
+
+  @override
+  List<Object?> get props => [value];
+}
+
+class WithoutPropsPressedState extends HomeState {
+  final int value;
+
+  const WithoutPropsPressedState(this.value);
 
   @override
   List<Object?> get props => [];
 }
 
-class HomeSuccessFetchDataState extends HomeState {
-  final List<Food> foods;
-  const HomeSuccessFetchDataState({
-    required this.foods,
-  });
+class UpdatePropsPressedState extends HomeState {
+  final int value;
+
+  const UpdatePropsPressedState(this.value);
+
+  @override
+  List<Object?> get props => [value];
+}
+
+class UpdateWithoutPropsState extends HomeState {
+  final int value;
+
+  const UpdateWithoutPropsState(this.value);
 
   @override
   List<Object?> get props => [];
